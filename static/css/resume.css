@@ -65,8 +65,9 @@ h2 {
 }
 
 svg {
-    fill: currentColor;
+  fill: currentColor;
 }
+
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 600;
   text-transform: uppercase;
