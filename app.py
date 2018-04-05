@@ -16,7 +16,9 @@ project_count = 0
 @app.route('/')
 def index():
     name = ["Connor", "Parrish"]
-    bio = "I am a programmer"
+    bio = "I have a strong background in game development. Most of my experience has focused on the fields of " \
+          "networking, gameplay, and tools development for the various projects that I have had the pleasure to " \
+          "work on."
     fb_link = "http://facebook.com/ConnorParrish"
     linkedin_link = "http://linkedin.com/in/connor-parrish"
     git_link = "http://github.com/ConnorParrish"
