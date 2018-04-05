@@ -120,19 +120,10 @@ section.resume-section {
 }
 
 section.resume-section .resume-item .resume-date {
-  min-width: none;
+  min-width: 30vw;
 }
 
-/*project[data-readmore] {*/
-  /*transition: height 200ms;*/
-  /*overflow: hidden;*/
-/*}*/
-
-/*project {*/
-  /*max-height: 6em;*/
-/*}*/
-
-project[data-readmore], article[data-readmore] {
+article[data-readmore] {
   transition: height 500ms;
   overflow:hidden;
 }

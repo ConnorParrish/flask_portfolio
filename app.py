@@ -22,15 +22,17 @@ def index():
     git_link = "http://github.com/ConnorParrish"
 
     experience = fill_in_experience()
-    projects = fill_in_projects()
+    games = fill_in_games()
+    tools = fill_in_tools()
+    software = fill_in_software()
     education = fill_in_education()
     interests = fill_in_interests()
 
     return render_template('index.html', rand_debugging=random_debug, first_name=name[0], last_name=name[1],
                            website_title=websiteTitle, address=address, phone_number="(317)501-4121",
                            email="me@connorparrish.net", bio=bio, fb_link=fb_link, linkedin_link=linkedin_link,
-                           git_link=git_link, experience_block=experience, project_block=projects,
-                           education_block=education, interests_block=interests)
+                           git_link=git_link, experience_block=experience, game_block=games, tools_block=tools,
+                           software_block=software, education_block=education, interests_block=interests)
 
 
 def fill_in_experience():
@@ -43,44 +45,75 @@ def fill_in_experience():
     return experience
 
 
-def fill_in_projects():
-    projects = projects_builder("Toggle", "Unity 3D", "Gameplay, UI, Animation", "5", "Challenging side-scroller " +
-                                 "taking inspiration from The Impossible Game. I developed the logic for " +
-                                 " save states, animation state-machines, and all gameplay mechanics. The team " +
-                                 " consisted of 2 artists, 1 designer, and 1 other programmer. Available now on the " +
-                                 "Google Play Store.", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/TogglePlayStore.png",
-                                                        "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Toggle-LevelSelect.jpg",
-                                                        "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/ToggleGameplay1.jpg"], 0)
-    projects += projects_builder("Drifer: The Game", "Unity 3D", "Gameplay, UI, Animation", "5", "Top-down, point-n" +
-                                 "-click survival alternative game, where the player lives the life of a homeless " +
-                                 "man in Salt Lake City. I developed all gameplay mechanics, NPC interactions, " +
-                                 "inventory system, vendor system, camera movement, stat system, and animation " +
-                                 " programming. This team consisted of 2 artists, 1 producer, and 1 other " +"Top-down, point-n" +
-                                 "-click survival alternative game, where the player lives the life of a homeless " +
-                                 "man in Salt Lake City. I developed all gameplay mechanics, NPC interactions, " +
-                                 "inventory system, vendor system, camera movement, stat system, and animation " +
-                                 " programming. This team consisted of 2 artists, 1 producer, and 1 other " +"Top-down, point-n" +
-                                 "-click survival alternative game, where the player lives the life of a homeless " +
-                                 "man in Salt Lake City. I developed all gameplay mechanics, NPC interactions, " +
-                                 "inventory system, vendor system, camera movement, stat system, and animation " +
-                                 " programming. This team consisted of 2 artists, 1 producer, and 1 other " +"Top-down, point-n" +
-                                 "-click survival alternative game, where the player lives the life of a homeless " +
-                                 "man in Salt Lake City. I developed all gameplay mechanics, NPC interactions, " +
-                                 "inventory system, vendor system, camera movement, stat system, and animation " +
-                                 " programming. This team consisted of 2 artists, 1 producer, and 1 other " +
-                                 "programmer", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-1.png",
-                                                "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-5.png",
-                                                "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-6.png"], 1)
-    projects += projects_builder("Cubed", "Unity 3D", "Gameplay, Design, UI", "1", "An isometric puzzle platformer " +
+def fill_in_games():
+    games = games_builder("Toggle", "Unity 3D", "Gameplay, UI, Animation", "5", "Run through the courses of a " +
+                                "middle school student's composition notebook doodles. In this runner inspired by The " +
+                                "Impossible Game, players are tasked to find a way to the end of the level. Along the " +
+                                "way, they’ll face bricks, spikes, and an occasional coin!", "Toggle had been the " +
+                                "first project I was able to dedicate serious time to. Through it I learned a lot " +
+                                "about the Unity engine and developing for mobile games. I learned how to read " +
+                                "serialized data, work with Unity’s UI, develop a game as a team, help manage a team, " +
+                                "and publish a game on the Google Play Store.", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/TogglePlayStore.png",
+                                                                                 "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Toggle-LevelSelect.jpg",
+                                                                                 "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/ToggleGameplay1.jpg"])
+    games += games_builder("Drifer: The Game", "Unity 3D", "Gameplay, UI, Animation", "5", "Drifter is an " +
+                                 "alternative game placing the player in the body of a homeless man in a city. The " +
+                                 "player needs to rely on panhandling and scrounging for items around the world in " +
+                                 "order to make a living enough to survive. If everything goes according to plan, " +
+                                 "the player will gather enough money to be able to begin renting in an Income " +
+                                 "Restricted apartment complex.", "This project was significantly more ambitious " +
+                                 "than previous titles I have worked on and the team experienced feature creep " +
+                                 "quickly through the 5 months it was developed. Difficulties aroused when the second " +
+                                 "engineer took 4 weeks off mid-project and all of his tasks fell onto my workload. " +
+                                 "All of the tasks were completed by deadlines, however, even after taking on " +
+                                 "the entirety of programming tasks. This project taught me how to stay accountable " +
+                                 "for other people’s work as Lead Programmer as well as how to structure large " +
+                                 "gameplay systems, such as inventory management, survival-esque stat systems, and " +
+                                 "in-game economies on a small scale.", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-1.png",
+                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-5.png",
+                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-6.png"])
+    games += games_builder("Cubed", "Unity 3D", "Gameplay, Design, UI", "1", "An isometric puzzle platformer " +
                                  "with inspiration from Portal and M.C. Escher's 'Ascending and Descending.' " +
                                  "Original game created for Ludum Dare 37 in a weekend. In that amount of time, " +
                                  "I developed moving platforms, character controls, interactive environments, and " +
-                                 "the puzzles playable on Itch.io", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay1.png",
-                                                                     "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay3.jpg",
-                                                                     "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay2.jpg",
-                                                                     "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay4.gif",
-                                                                     "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay5.jpg"], 2)
-    return projects
+                                 "the puzzles playable on Itch.io", "", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay1.png",
+                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay3.jpg",
+                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay2.jpg",
+                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay4.gif",
+                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay5.jpg"])
+    return games
+
+
+def fill_in_tools():
+    tools = tools_builder("NPC Dialogue System", "Unity 3D", "Designers are able to use this tool to create spanning " +
+                          "dialogue options for NPCs. Customization includes NPC names, sprite, and an endless number " +
+                          "of responses dependant on the player's dialogue selections. This was originally programmed " +
+                          "to use JSON instead of Unity 3D's ScriptableObjects for portability's sake, but modified " +
+                          "to match the requests of designers.", [
+                              "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/04/Unity-DialogueSystem.png"])
+    tools += tools_builder("NPC Builder", "Unity 3D", "Level designers can use this tool to create custom NPC's to " +
+                           "fill their worlds. The 'Wealth Level,' 'Hat type,' and 'Lefthand Accessory' were the " +
+                           "only assets I recieved for the project, so I build the wizard around that. The script " +
+                           "will spawn the selected items on the bones of the newly created NPC. Since our NPC's " +
+                           "were not high-fidelity models, artists could get away with the rigid animations in these " +
+                           "spawned items would create.",
+                           ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/04/drifter-npcbuilder.png"])
+    return tools
+
+
+def fill_in_software():
+    software = tools_builder("App Pinner", "Windows 10", "Tired of your bland Windows 10 Start Menu? Pick and choose " +
+                             "your own images to represent files, folders, programs, websites, or games on your PC. " +
+                             "The program can automatically find your installed Steam and GOG Galaxy games (Uplay and " +
+                             "Origin coming soon). Along with finding your games for you, App Pinner can also grab " +
+                             "high-resolution images from the web to match your games!\n\nI built App Pinner because " +
+                             "I wasn't happy with the tools other developers have already created for Windows 10.",
+                             ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/04/apppinner.png",
+                              "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/04/apppinner-full.png",
+                              "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/04/apppinner-gamepicker.png",
+                              "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/04/apppinner-settings.png"])
+
+    return software
 
 
 def fill_in_education():
@@ -88,6 +121,7 @@ def fill_in_education():
                                    "Arts and Engineering", "Graduating: May 2019")
 
     return education
+
 
 def fill_in_interests():
     interests = interests_builder("I like making games.")
@@ -111,66 +145,96 @@ def experience_builder(title, company, date_range, summary):
     return experience_block
 
 
-def projects_builder(gameTitle, engine, roles, teamSize, description, image_urls, project_number):
-    project_block = '''<div class="resume-item d-flex flex-column flex-md-row mb-5">
+def games_builder(gameTitle, engine, roles, teamSize, description, post_mortem, image_urls, captions=[]):
+    game_block = '''<div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
-              <h3 class="mb-0">%s - %s</h3>
+              <h3 class="mb-0">{0} - {1}</h3>
               <article>
-                <h2 class="subheading mb-3">Roles: %s</h2>
-                <h1 class="subheading mb-3">Team size: %s</h1>
-                <p>%s</p>
+                <h2 class="subheading mb-3">
+                  <p>Roles: {2} <br>Team size: {3}</p>
+                </h2>
+                <p>{4}</p>
+                <p>{5}</p>
               
               </article>
             </div>
             <div class="resume-date text-md-right">
-              <div class="slideshow-container">
-                %s
-              </div>
+              {6}
             </div>
           </div>
-          ''' % (gameTitle, engine, roles, teamSize, description, slideshow_builder(image_urls))
+          '''.format(gameTitle, engine, roles, teamSize, description, post_mortem, slideshow_builder(image_urls, captions))
 
-    return project_block
+    return game_block
 
 
-def slideshow_builder(image_urls):
+def tools_builder(title, platform, description, image_urls, captions=[]):
+    tools_block = '''<div class="resume-item d-flex flex-column flex-md-row mb-5">
+                <div class="resume-content mr-auto">
+                  <h3 class="mb-0">{0}</h3>
+                  <article>
+                    <h2 class="subheading mb-3">
+                      <p>{1}</p>
+                    </h2>
+                    <p>{2}</p>
+                  </article>
+                </div>
+                <div class="resume-date text-md-right">
+                  {3}
+                </div>
+              </div>
+              '''.format(title, platform, description, slideshow_builder(image_urls))
+
+    return tools_block
+
+# TODO: Modals for closer look
+# TODO: Set the image's size correctly
+def slideshow_builder(image_urls, captions=[]):
     numbertext_denominator = len(image_urls)
-    slide_block = '''<div class="mySlides">
-                  <div class="numbertext">%d / %d</div>
-                  <img src="%s" style="width:%s">
-                  <div class="text">%s</div>
-                </div>'''
-    dot_block = '''<div style="text-align:center">
-                  %s
-                </div>'''
-    dot_class_block = '''<span class="dot"></span>
-                '''
+    slide_container = '''<div class="container">
+                           <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                             <!-- Indicators -->
+                             <ol class="carousel-indicators">
+                               {0}
+                             </ol>
+                             <!-- Wrapper for the slides -->
+                             <div class="carousel-inner">
+                               {1}
+                             </div>
+                           </div>
+                         </div>
+                         '''
+    indicators = '''<li data-target="#myCarousel" data-slide-to="{0}"{1}></li>
+                    '''
+    slides = '''<div class="carousel-item{0}">
+        <img src="{1}" class="img-responsive" alt="{2}">
+      </div>
+      '''
 
-    dot_class_result = ''''''
-    result = ''''''
+    indicators_block = ''''''
+    slides_block = ''''''
 
-    for i in range(len(image_urls)):
-        result += slide_block % (i+1, numbertext_denominator, image_urls[i], "100%", "")
-        dot_class_result += dot_class_block
+    for i in range(0, len(image_urls)):
+        if i == 0:
+            slides_block += slides.format(" active", image_urls[i], i)
+            indicators_block += indicators.format(i, ' class="active"')
+        else:
+            slides_block += slides.format("", image_urls[i], i)
+            indicators_block += indicators.format(i, "")
 
-    result += '''
-                <a class="prev">&#10094;</a>
-                <a class="next">&#10095;</a>
-                '''
-    result += dot_block % dot_class_result
+    slide_container = slide_container.format(indicators_block, slides_block)
 
-    return result
+    return slide_container
 
 
 def education_builder(school, degree, information, graduation_date):
     education_block = '''<div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <project>
+            <article>
               <div class="resume-content mr-auto">
                 <h3 class="mb-0">%s</h3>
                 <div class="subheading mb-3">%s</div>
                 <div>%s</div>
               </div>
-            </project>
+            </article>
             <div class="resume-date text-md-right">
               <span class="text-primary">%s</span>
             </div>
