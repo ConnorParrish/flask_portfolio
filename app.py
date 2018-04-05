@@ -6,7 +6,7 @@ app = Flask(__name__)
 Bootstrap(app)
 
 websiteTitle = "Connor Parrish's Portfolio"
-address = "Gameplay, Tools, and Networking Engineer "
+address = "Networking, Gameplay, and Tools Engineer"
 
 # This random int is used to debug in chrome without worrying about the browser's cache.
 random_debug = randint(0, 100000000)
@@ -117,7 +117,7 @@ def fill_in_software():
 
 
 def fill_in_education():
-    education = education_builder("University of Utah", "Bachelor of Computer Science", "Emphasis in Entertainment" +
+    education = education_builder("University of Utah", "Bachelor of Computer Science", "Emphasis in Entertainment " +
                                    "Arts and Engineering", "Graduating: May 2019")
 
     return education
@@ -146,20 +146,22 @@ def experience_builder(title, company, date_range, summary):
 
 
 def games_builder(gameTitle, engine, roles, teamSize, description, post_mortem, image_urls, captions=[]):
-    game_block = '''<div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">{0} - {1}</h3>
-              <article>
-                <h2 class="subheading mb-3">
-                  <p>Roles: {2} <br>Team size: {3}</p>
-                </h2>
-                <p>{4}</p>
-                <p>{5}</p>
+    game_block = '''<div class="resume-item">
+            <div class="row">
+              <div class="resume-content col-lg-8">
+                <h3 class="mb-0">{0} - {1}</h3>
+                <article>
+                  <h2 class="subheading mb-3">
+                    <p>Roles: {2} <br>Team size: {3}</p>
+                  </h2>
+                  <p>{4}</p>
+                  <p>{5}</p>
               
-              </article>
-            </div>
-            <div class="resume-date text-md-right">
-              {6}
+                </article>
+              </div>
+              <div class="resume-slides col-lg-4" style="margin-bottom:40px;">
+                {6}
+              </div>
             </div>
           </div>
           '''.format(gameTitle, engine, roles, teamSize, description, post_mortem, slideshow_builder(image_urls, captions))
@@ -168,18 +170,20 @@ def games_builder(gameTitle, engine, roles, teamSize, description, post_mortem, 
 
 
 def tools_builder(title, platform, description, image_urls, captions=[]):
-    tools_block = '''<div class="resume-item d-flex flex-column flex-md-row mb-5">
-                <div class="resume-content mr-auto">
-                  <h3 class="mb-0">{0}</h3>
-                  <article>
-                    <h2 class="subheading mb-3">
-                      <p>{1}</p>
-                    </h2>
-                    <p>{2}</p>
-                  </article>
-                </div>
-                <div class="resume-date text-md-right">
-                  {3}
+    tools_block = '''<div class="resume-item">
+                <div class="row">
+                  <div class="resume-content col-lg-8">
+                    <h3 class="mb-0">{0}</h3>
+                    <article>
+                      <h2 class="subheading mb-3">
+                        <p>{1}</p>
+                      </h2>
+                      <p>{2}</p>
+                    </article>
+                  </div>
+                  <div class="resume-date col-lg-4" style="margin-bottom:40px">
+                    {3}
+                  </div>
                 </div>
               </div>
               '''.format(title, platform, description, slideshow_builder(image_urls))
@@ -189,7 +193,6 @@ def tools_builder(title, platform, description, image_urls, captions=[]):
 # TODO: Modals for closer look
 # TODO: Set the image's size correctly
 def slideshow_builder(image_urls, captions=[]):
-    numbertext_denominator = len(image_urls)
     slide_container = '''<div class="container">
                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
                              <!-- Indicators -->
@@ -206,7 +209,7 @@ def slideshow_builder(image_urls, captions=[]):
     indicators = '''<li data-target="#myCarousel" data-slide-to="{0}"{1}></li>
                     '''
     slides = '''<div class="carousel-item{0}">
-        <img src="{1}" class="img-responsive" alt="{2}">
+        <img class="img-fluid" src="{1}" alt="{2}">
       </div>
       '''
 
@@ -249,7 +252,6 @@ def interests_builder(description):
           <h2 class="mb-5">Interests</h2>
           <p>%s</p>
         </div>''' % description
-#          <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.</p>
 
     return interests_block
 

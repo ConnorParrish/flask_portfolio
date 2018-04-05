@@ -24,14 +24,14 @@
     <link href="static/css/resume.css?q={{ rand_debugging }}" rel="stylesheet">
     <link href="static/css/slideshow.css?q={{ rand_debugging }}" rel="stylesheet">
 
-    <!-- Find a way to put this in CSS -->
-    <style>
-      .carousel-inner > .item > img,
-      .carousel-inner > .item > a > img {
-        width: 100%;
-        margin: auto;
-      }
-    </style>
+{#    <!-- Find a way to put this in CSS -->#}
+{#    <style>#}
+{#      .carousel-inner > .item > img,#}
+{#      .carousel-inner > .item > a > img {#}
+{#        width: 100%;#}
+{#        margin: auto;#}
+{#      }#}
+{#    </style>#}
   </head>
 
   <body id="page-top">
@@ -48,7 +48,7 @@
           <h1 class="mb-0">{{ first_name }}
             <span class="text-primary">{{ last_name }}</span>
           </h1>
-          <div class="subheading mb-5">{{ address }}· {{ phone_number }} ·
+          <div class="subheading mb-5">{{ address }} · {{ phone_number }} ·
             <a href="mailto:name@email.com">{{ email }}</a>
           </div>
           <p class="mb-5">{{ bio }}</p>

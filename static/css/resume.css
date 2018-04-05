@@ -119,9 +119,16 @@ section.resume-section {
   padding-bottom: 5rem !important;
 }
 
-section.resume-section .resume-item .resume-date {
-  min-width: 30vw;
+section.resume-content {
+  width: 70vw;
 }
+
+section.resume-slides {
+  width: 30vw;
+}
+/*section.resume-section .resume-item .resume-date {*/
+  /*min-width: 30vw;*/
+/*}*/
 
 article[data-readmore] {
   transition: height 500ms;
@@ -134,7 +141,6 @@ article[data-readmore] {
   }
   section.resume-section .resume-item .resume-date {
     min-width: 18rem;
-    max-width: 20rem;
   }
 }
 
