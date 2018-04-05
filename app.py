@@ -24,11 +24,13 @@ def index():
     experience = fill_in_experience()
     projects = fill_in_projects()
     education = fill_in_education()
+    interests = fill_in_interests()
 
     return render_template('index.html', rand_debugging=random_debug, first_name=name[0], last_name=name[1],
                            website_title=websiteTitle, address=address, phone_number="(317)501-4121",
-                           email="me@connorparrish.net", bio=bio, experience_block=experience, project_block=projects,
-                           education_block=education, fb_link=fb_link, linkedin_link=linkedin_link, git_link=git_link)
+                           email="me@connorparrish.net", bio=bio, fb_link=fb_link, linkedin_link=linkedin_link,
+                           git_link=git_link, experience_block=experience, project_block=projects,
+                           education_block=education, interests_block=interests)
 
 
 def fill_in_experience():
@@ -48,15 +50,27 @@ def fill_in_projects():
                                  " consisted of 2 artists, 1 designer, and 1 other programmer. Available now on the " +
                                  "Google Play Store.", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/TogglePlayStore.png",
                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Toggle-LevelSelect.jpg",
-                                                        "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/ToggleGameplay1.jpg"])
+                                                        "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/ToggleGameplay1.jpg"], 0)
     projects += projects_builder("Drifer: The Game", "Unity 3D", "Gameplay, UI, Animation", "5", "Top-down, point-n" +
+                                 "-click survival alternative game, where the player lives the life of a homeless " +
+                                 "man in Salt Lake City. I developed all gameplay mechanics, NPC interactions, " +
+                                 "inventory system, vendor system, camera movement, stat system, and animation " +
+                                 " programming. This team consisted of 2 artists, 1 producer, and 1 other " +"Top-down, point-n" +
+                                 "-click survival alternative game, where the player lives the life of a homeless " +
+                                 "man in Salt Lake City. I developed all gameplay mechanics, NPC interactions, " +
+                                 "inventory system, vendor system, camera movement, stat system, and animation " +
+                                 " programming. This team consisted of 2 artists, 1 producer, and 1 other " +"Top-down, point-n" +
+                                 "-click survival alternative game, where the player lives the life of a homeless " +
+                                 "man in Salt Lake City. I developed all gameplay mechanics, NPC interactions, " +
+                                 "inventory system, vendor system, camera movement, stat system, and animation " +
+                                 " programming. This team consisted of 2 artists, 1 producer, and 1 other " +"Top-down, point-n" +
                                  "-click survival alternative game, where the player lives the life of a homeless " +
                                  "man in Salt Lake City. I developed all gameplay mechanics, NPC interactions, " +
                                  "inventory system, vendor system, camera movement, stat system, and animation " +
                                  " programming. This team consisted of 2 artists, 1 producer, and 1 other " +
                                  "programmer", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-1.png",
-                                                        "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-5.png",
-                                                        "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-6.png"])
+                                                "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-5.png",
+                                                "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-6.png"], 1)
     projects += projects_builder("Cubed", "Unity 3D", "Gameplay, Design, UI", "1", "An isometric puzzle platformer " +
                                  "with inspiration from Portal and M.C. Escher's 'Ascending and Descending.' " +
                                  "Original game created for Ludum Dare 37 in a weekend. In that amount of time, " +
@@ -65,7 +79,7 @@ def fill_in_projects():
                                                                      "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay3.jpg",
                                                                      "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay2.jpg",
                                                                      "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay4.gif",
-                                                                     "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay5.jpg"])
+                                                                     "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay5.jpg"], 2)
     return projects
 
 
@@ -74,6 +88,12 @@ def fill_in_education():
                                    "Arts and Engineering", "Graduating: May 2019")
 
     return education
+
+def fill_in_interests():
+    interests = interests_builder("I like making games.")
+
+    return interests
+
 
 def experience_builder(title, company, date_range, summary):
     experience_block = '''<div class="resume-item d-flex flex-column flex-md-row mb-5">
@@ -91,13 +111,16 @@ def experience_builder(title, company, date_range, summary):
     return experience_block
 
 
-def projects_builder(gameTitle, engine, roles, teamSize, description, image_urls):
+def projects_builder(gameTitle, engine, roles, teamSize, description, image_urls, project_number):
     project_block = '''<div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
               <h3 class="mb-0">%s - %s</h3>
-              <div class="subheading mb-3">Roles: %s</div>
-              <div class="subheading mb-3">Team size: %s</div>
-              <p>%s</p>
+              <article>
+                <h2 class="subheading mb-3">Roles: %s</h2>
+                <h1 class="subheading mb-3">Team size: %s</h1>
+                <p>%s</p>
+              
+              </article>
             </div>
             <div class="resume-date text-md-right">
               <div class="slideshow-container">
@@ -127,7 +150,7 @@ def slideshow_builder(image_urls):
     result = ''''''
 
     for i in range(len(image_urls)):
-        result += slide_block % (i, numbertext_denominator, image_urls[i], "100%", "")
+        result += slide_block % (i+1, numbertext_denominator, image_urls[i], "100%", "")
         dot_class_result += dot_class_block
 
     result += '''
@@ -141,11 +164,13 @@ def slideshow_builder(image_urls):
 
 def education_builder(school, degree, information, graduation_date):
     education_block = '''<div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">%s</h3>
-              <div class="subheading mb-3">%s</div>
-              <div>%s</div>
-            </div>
+            <project>
+              <div class="resume-content mr-auto">
+                <h3 class="mb-0">%s</h3>
+                <div class="subheading mb-3">%s</div>
+                <div>%s</div>
+              </div>
+            </project>
             <div class="resume-date text-md-right">
               <span class="text-primary">%s</span>
             </div>
@@ -154,6 +179,15 @@ def education_builder(school, degree, information, graduation_date):
 
     return education_block
 
+
+def interests_builder(description):
+    interests_block = '''<div class="my-auto">
+          <h2 class="mb-5">Interests</h2>
+          <p>%s</p>
+        </div>''' % description
+#          <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.</p>
+
+    return interests_block
 
 if __name__ == '__main__':
     app.run()

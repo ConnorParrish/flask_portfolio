@@ -123,12 +123,27 @@ section.resume-section .resume-item .resume-date {
   min-width: none;
 }
 
+/*project[data-readmore] {*/
+  /*transition: height 200ms;*/
+  /*overflow: hidden;*/
+/*}*/
+
+/*project {*/
+  /*max-height: 6em;*/
+/*}*/
+
+project[data-readmore], article[data-readmore] {
+  transition: height 500ms;
+  overflow:hidden;
+}
+
 @media (min-width: 768px) {
   section.resume-section {
     min-height: 100vh;
   }
   section.resume-section .resume-item .resume-date {
     min-width: 18rem;
+    max-width: 20rem;
   }
 }
 
