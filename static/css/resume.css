@@ -73,6 +73,19 @@ svg {
   text-transform: uppercase;
 }
 
+@media (max-width: 767px) {
+  .navbar-fixed-top {
+    position: relative;
+    top: auto;
+  }
+  .navbar-collapse {
+    max-height: none;
+  }
+  body {
+    margin: 0;
+  }
+}
+
 @media (min-width: 992px) {
   #sideNav {
     text-align: center;
