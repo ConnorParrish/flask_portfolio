@@ -24,14 +24,6 @@
     <link href="static/css/resume.css?q={{ rand_debugging }}" rel="stylesheet">
     <link href="static/css/slideshow.css?q={{ rand_debugging }}" rel="stylesheet">
 
-{#    <!-- Find a way to put this in CSS -->#}
-{#    <style>#}
-{#      .carousel-inner > .item > img,#}
-{#      .carousel-inner > .item > a > img {#}
-{#        width: 100%;#}
-{#        margin: auto;#}
-{#      }#}
-{#    </style>#}
   </head>
 
   <body id="page-top">
@@ -49,7 +41,7 @@
             <span class="text-primary">{{ last_name }}</span>
           </h1>
           <div class="subheading mb-5">{{ address }} · {{ phone_number }} ·
-            <a href="mailto:name@email.com">{{ email }}</a>
+            <a href="mailto:{{ email }}">{{ email }}</a>
           </div>
           <p class="mb-5">{{ bio }}</p>
           <ul class="list-inline list-social-icons mb-0">
@@ -61,14 +53,6 @@
                 </span>
               </a>
             </li>
-{#            <li class="list-inline-item">#}
-{#              <a href="#">#}
-{#                <span class="fa-stack fa-lg">#}
-{#                  <i class="fa fa-circle fa-stack-2x"></i>#}
-{#                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>#}
-{#                </span>#}
-{#              </a>#}
-{#            </li>#}
             <li class="list-inline-item">
               <a href="{{ linkedin_link }}">
                 <span class="fa-stack fa-lg">
@@ -107,6 +91,8 @@
         <div class="my-auto">
           <h2 class="mb-5">Developer Tools</h2>
           {{ tools_block | safe }}
+        </div><br><br>
+        <div class="my-auto">
           <h2 class="mb-5">Software Tools</h2>
           {{ software_block | safe }}
         </div>
@@ -183,44 +169,12 @@
         </div>
       </section>
 
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
-        {{ interests_block | safe }}
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="leaderboards">
+        <div class="my-auto">
+          <h2 class="mb-5">Leaderboards</h2>
+          {{ leaderboard_block | safe }}
+        </div>
       </section>
-{##}
-{#      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="leaderboards">#}
-{#        <div class="my-auto">#}
-{#          <h2 class="mb-5">Awards &amp; Certifications</h2>#}
-{#          <ul class="fa-ul mb-0">#}
-{#            <li>#}
-{#              <i class="fa-li fa fa-trophy text-warning"></i>#}
-{#              Google Analytics Certified Developer</li>#}
-{#            <li>#}
-{#              <i class="fa-li fa fa-trophy text-warning"></i>#}
-{#              Mobile Web Specialist - Google Certification</li>#}
-{#            <li>#}
-{#              <i class="fa-li fa fa-trophy text-warning"></i>#}
-{#              1<sup>st</sup>#}
-{#              Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>#}
-{#            <li>#}
-{#              <i class="fa-li fa fa-trophy text-warning"></i>#}
-{#              1<sup>st</sup>#}
-{#              Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>#}
-{#            <li>#}
-{#              <i class="fa-li fa fa-trophy text-warning"></i>#}
-{#              2<sup>nd</sup>#}
-{#              Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>#}
-{#            <li>#}
-{#            <li>#}
-{#              <i class="fa-li fa fa-trophy text-warning"></i>#}
-{#              1<sup>st</sup>#}
-{#              Place - James Buchanan High School - Hackathon 2006</li>#}
-{#            <li>#}
-{#              <i class="fa-li fa fa-trophy text-warning"></i>#}
-{#              3<sup>rd</sup>#}
-{#              Place - James Buchanan High School - Hackathon 2005</li>#}
-{#          </ul>#}
-{#        </div>#}
-{#      </section>#}
 
     </div>
 

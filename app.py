@@ -26,13 +26,13 @@ def index():
     tools = fill_in_tools()
     software = fill_in_software()
     education = fill_in_education()
-    interests = fill_in_interests()
+    leaderboard = fill_in_leaderboard()
 
     return render_template('index.html', rand_debugging=random_debug, first_name=name[0], last_name=name[1],
                            website_title=websiteTitle, address=address, phone_number="(317)501-4121",
                            email="me@connorparrish.net", bio=bio, fb_link=fb_link, linkedin_link=linkedin_link,
                            git_link=git_link, experience_block=experience, game_block=games, tools_block=tools,
-                           software_block=software, education_block=education, interests_block=interests)
+                           software_block=software, education_block=education, leaderboard_block=leaderboard)
 
 
 def fill_in_experience():
@@ -123,10 +123,12 @@ def fill_in_education():
     return education
 
 
-def fill_in_interests():
-    interests = interests_builder("I like making games.")
-
-    return interests
+def fill_in_leaderboard():
+    leaderboard = leaderboard_builder("All-Stars", ["Dark Souls", "The Witcher 3", "Assassins Creed: 2"])
+    leaderboard += leaderboard_builder("Roleplaying Games", ["The Witcher 3", "Dark Souls", "Tombraider (2013)"])
+    leaderboard += leaderboard_builder("First-Person Shooter", ["Destiny", "Halo: Reach", "Overwatch"])
+    leaderboard += leaderboard_builder("Competitive Games", ["League of Legends", "Overwatch", "PlayerUnknown's Battlegrounds"])
+    return leaderboard
 
 
 def experience_builder(title, company, date_range, summary):
@@ -247,13 +249,23 @@ def education_builder(school, degree, information, graduation_date):
     return education_block
 
 
-def interests_builder(description):
-    interests_block = '''<div class="my-auto">
-          <h2 class="mb-5">Interests</h2>
-          <p>%s</p>
-        </div>''' % description
+def leaderboard_builder(category, games):
+    leaderboard_block = '''<h3 class="mb-0">{0}</h3>
+                           <ul class="fa-ul mb-0">
+                             {1}
+                           </ul>
+                           <br>
+                           '''#.format("1", "5")
 
-    return interests_block
+    leaderboards = '''<li>
+                        <i class="fa-li fa fa-trophy" style="color:#ffc107"></i>{0}</li>
+                      <li>  
+                        <i class="fa-li fa fa-trophy" style="color:#979590"></i>{1}</li>
+                      <li>  
+                        <i class="fa-li fa fa-trophy" style="color:#886533"></i>{2}</li>
+                      '''.format(games[0], games[1], games[2])
+
+    return leaderboard_block.format(category, leaderboards)
 
 if __name__ == '__main__':
     app.run()
