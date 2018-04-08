@@ -65,10 +65,9 @@ def fill_in_games():
                                  "the player will gather enough money to be able to begin renting in an Income " +
                                  "Restricted apartment complex.", "This project was significantly more ambitious " +
                                  "than previous titles I have worked on and the team experienced feature creep " +
-                                 "quickly through the 5 months it was developed. Difficulties aroused when the second " +
-                                 "engineer took 4 weeks off mid-project and all of his tasks fell onto my workload. " +
+                                 "quickly through the 5 months it was developed. Difficulties aroused when team member's availablility fluctuated mid-project and my workload nearly doubled. " +
                                  "All of the tasks were completed by deadlines, however, even after taking on " +
-                                 "the entirety of programming tasks. This project taught me how to stay accountable " +
+                                 "the majority of programming tasks for a few weeks. This project taught me how to stay accountable " +
                                  "for other people’s work as Lead Programmer as well as how to structure large " +
                                  "gameplay systems, such as inventory management, survival-esque stat systems, and " +
                                  "in-game economies on a small scale.", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-1.png",
