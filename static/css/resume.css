@@ -179,3 +179,17 @@ a {
 a:hover, a:focus, a:active {
   color: var(--secondary-color);
 }
+
+.inline-resume {
+ width:100%;
+ height:800px;
+}
+
+@media (min-width: 992px) {
+  .inline-resume {
+    margin-left:auto;
+    margin-right:auto;
+    width: 90%;
+    height:800px;
+  }
+}

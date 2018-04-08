@@ -50,7 +50,7 @@
           <h1 class="mb-0">{{ first_name }}
             <span class="text-primary">{{ last_name }}</span>
           </h1>
-          <div class="subheading mb-5">{{ address }} · {{ phone_number }} ·
+          <div class="subheading mb-5">{{ address }} · <a href="tel:{{ phone_number }}">{{ phone_number }}</a> ·
             <a href="mailto:{{ email }}">{{ email }}</a>
           </div>
           <p class="mb-5">{{ bio }}</p>
@@ -183,6 +183,16 @@
         <div class="my-auto">
           <h2 class="mb-5">Leaderboards</h2>
           {{ leaderboard_block | safe }}
+        </div>
+      </section>
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="resume">
+        <div class="my-auto">
+          <h2 class="mb-5">Resume</h2>
+          <div class="inline-resume">
+          <object class="inline-resume" data="http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/04/resume.pdf" type="application/pdf">
+            <p>Looks like you don't have a PDF plugin on your browser! Not to worry, <a href="http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/04/resume.pdf">click here to download the file.</a></p>
+          </object>
+          </div>
         </div>
       </section>
 
