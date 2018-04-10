@@ -28,13 +28,15 @@ def index():
     tools = fill_in_tools()
     software = fill_in_software()
     education = fill_in_education()
+    workflow = fill_in_workflow()
     leaderboard = fill_in_leaderboard()
 
     return render_template('index.html', rand_debugging=random_debug, first_name=name[0], last_name=name[1],
                            website_title=websiteTitle, address=address, phone_number="(317)501-4121",
                            email="me@connorparrish.net", bio=bio, fb_link=fb_link, linkedin_link=linkedin_link,
                            git_link=git_link, experience_block=experience, game_block=games, tools_block=tools,
-                           software_block=software, education_block=education, leaderboard_block=leaderboard)
+                           software_block=software, education_block=education, workflow_block=workflow,
+                           leaderboard_block=leaderboard)
 
 
 def fill_in_experience():
@@ -123,6 +125,10 @@ def fill_in_education():
 
     return education
 
+def fill_in_workflow():
+    workflow = workflow_builder(["Agile/Scrum Development", "Clearly documented, easily maintainable code",
+                                 "Develop tools to make work easier, not harder", "Develop in osmosis"])
+    return workflow
 
 def fill_in_leaderboard():
     leaderboard = leaderboard_builder("All-Stars", ["Dark Souls", "The Witcher 3", "Assassins Creed: 2"])
@@ -248,6 +254,18 @@ def education_builder(school, degree, information, graduation_date):
           ''' % (school, degree, information, graduation_date)
 
     return education_block
+
+
+def workflow_builder(workflow_elements):
+    workflow_template = '''<li>
+              <i class="fa-li fa fa-check"></i>
+              {0}</li>'''
+    workflow_block = ''''''
+
+    for element in workflow_elements:
+        workflow_block += workflow_template.format(element)
+
+    return workflow_block
 
 
 def leaderboard_builder(category, games):
