@@ -16,9 +16,12 @@ project_count = 0
 @app.route('/')
 def index():
     name = ["Connor", "Parrish"]
-    bio = "I have a strong background in game development. Most of my experience has focused on the fields of " \
-          "networking, gameplay, and tools development for the various projects that I have had the pleasure to " \
-          "work on."
+    bio = "I am studying for my Bachelors degree in Computer Science at the University of Utah with an emphasis in" \
+          " Entertainment Arts & Engineering. I aspire to be a prominent developer in the interactive entertainment " \
+          "industry. <br><br> As an aspiring developer I have spent my time at the University of Utah familiarizing " \
+          "myself with technology found within industry standards as well as innovating on what has been made. " \
+          "Through projects in mobile development, VR, UWP, and general game development, I have found a place I " \
+          "truly belong! My goal is to enrich other people's lives with the experiences I help to create."
     fb_link = "http://facebook.com/ConnorParrish"
     linkedin_link = "http://linkedin.com/in/connor-parrish"
     git_link = "http://github.com/ConnorParrish"

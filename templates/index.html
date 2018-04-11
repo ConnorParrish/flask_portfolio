@@ -53,7 +53,7 @@
           <div class="subheading mb-5">{{ address }} · <a href="tel:{{ phone_number }}">{{ phone_number }}</a> ·
             <a href="mailto:{{ email }}">{{ email }}</a>
           </div>
-          <p class="mb-5">{{ bio }}</p>
+          <p class="mb-5">{{ bio | safe }}</p>
           <ul class="list-inline list-social-icons mb-0">
             <li class="list-inline-item">
               <a href="{{ fb_link }}">
