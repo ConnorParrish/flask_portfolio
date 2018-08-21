@@ -40,7 +40,12 @@ def index():
 
 
 def fill_in_experience():
-    experience = experience_builder("Gameplay Engineer", "Stratus Softworks", "February 2018 - Present",
+    experience = experience_builder("IX Engineering Intern", "Roblox", "May 2018 - August 2018",
+                                     "Created a tutorial for creating Top-Down Twinstick Shooters in <b>Roblox " +
+                                     "Studio</b> for Roblox's Education materials. Also added new content creation " +
+                                     "features for the IX Documentation team for their new documentation website " +
+                                     "to enhance article content.")
+    experience += experience_builder("Gameplay Engineer", "Stratus Softworks", "February 2018 - Present",
                                      "Working with a subteam of 8 programmers to develop gameplay features from " +
                                      "documentation within <b>Unity 3D</b>")
     experience += experience_builder("Networking Engineer", "Clever Girl LLC", "February 2018 - Present",
@@ -125,10 +130,12 @@ def fill_in_education():
 
     return education
 
+
 def fill_in_workflow():
     workflow = workflow_builder(["Agile/Scrum Development", "Clearly documented, easily maintainable code",
                                  "Develop tools to make work easier, not harder", "Develop in osmosis"])
     return workflow
+
 
 def fill_in_leaderboard():
     leaderboard = leaderboard_builder("All-Stars", ["Dark Souls", "The Witcher 3", "Assassins Creed: 2"])
@@ -198,6 +205,7 @@ def tools_builder(title, platform, description, image_urls, captions=[]):
               '''.format(title, platform, description, slideshow_builder(image_urls))
 
     return tools_block
+
 
 # TODO: Modals for closer look
 # TODO: Set the image's size correctly
@@ -285,6 +293,7 @@ def leaderboard_builder(category, games):
                       '''.format(games[0], games[1], games[2])
 
     return leaderboard_block.format(category, leaderboards)
+
 
 if __name__ == '__main__':
     app.run()
