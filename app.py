@@ -36,14 +36,26 @@ def index():
 
     return render_template('index.html', rand_debugging=random_debug, first_name=name[0], last_name=name[1],
                            website_title=websiteTitle, address=address, phone_number="(317)501-4121",
-                           email="me@connorparrish.net", bio=bio, fb_link=fb_link, linkedin_link=linkedin_link,
+                           email="me@connorparrish.net", bio=bio, linkedin_link=linkedin_link,
                            git_link=git_link, experience_block=experience, game_block=games, tools_block=tools,
                            software_block=software, education_block=education, workflow_block=workflow,
                            leaderboard_block=leaderboard)
 
 
 def fill_in_experience():
-    experience = experience_builder("Gameplay Engineer", "Stratus Softworks", "February 2018 - Present",
+    experience = experience_builder("IX Engineering Intern", "Roblox", "May 2018 - Present", "Created a tutorial for " +
+                                    "creating Top-Down Twinstick Shooters in <b>Roblox Studio</b> for Roblox's " +
+                                    "Education materials. Also added new content creation features for the IX " +
+                                    "Documentation team for their new documentation website to enhance article " +
+                                    "content.")
+
+    # experience += experience_builder("Gameplay Systems Engineer", "Studio 73", "August 2018 - Present", "Developed " +
+    #                                  "core time travel mechanic to Chronoraptor with <b>Unreal Engine 4</b> and the " +
+    #                                  "timer system that designers and other programmers used to add features. " +
+    #                                  "Character movement was stored as Vector3 arrays for velocity and position. " +
+    #                                  "Character animations were Animation Snapshots saved as an array of integers.")
+
+    experience += experience_builder("Gameplay Engineer", "Stratus Softworks", "February 2018 - Present",
                                      "Working with a subteam of 8 programmers to develop gameplay features from " +
                                      "documentation within <b>Unity 3D</b>")
     experience += experience_builder("Networking Engineer", "Clever Girl LLC", "February 2018 - Present",
@@ -53,16 +65,37 @@ def fill_in_experience():
 
 
 def fill_in_games():
-    games = games_builder("Toggle", "Unity 3D", "Gameplay, UI, Animation", "5", "Run through the courses of a " +
+    games = games_builder("Chronoraptor", "Unreal Engine 4", "Gameplay Systems Engineer", "13", "Chronoraptor is a " +
+                          "Game where the player needs to use time travel to solve puzzles with past versions of " +
+                          "themselves in order to put an end to a time travelling raptor's thieving escapades. By " +
+                          "rewinding time, players can replicate their actions in the exact moments they happen. " +
+                          "My job in this project was to create the time travel system the game uses all the time. " +
+                          "Using timers and events in Unreal Engine 4, I created a game loop that would poll the " +
+                          "player, antagonist, and any other specified object in the scene and gather the object's " +
+                          "position and velocity. The animated objects would also capture Snapshots of the animation " +
+                          "pose and save them to an integer array. All animations and movement are able to be " +
+                          "rewound or fast-forwarded. I also implemented a material that would display the outline " +
+                          "of players, keycards, and artifacts when a part of them is behind the environment",
+                          "Chronoraptor has been my favorite project to date in my experience. Building large systems " +
+                          "is something that I enjoy participating on. The only thing that wasn't done was " +
+                          "overflow protection for players who let the timer run on for too long. The best way to do " +
+                          "this would be to create a failstate that triggers when the in-game stopwatch gets too high.",
+                            ["https://steamcdn-a.akamaihd.net/steam/apps/1049000/ss_80ccf71a828a8aa30fecb676e21975466bd3550c.1920x1080.jpg?t=1557442133",
+                             "https://steamcdn-a.akamaihd.net/steam/apps/1049000/ss_e49191b87f0d41eb5bead4bc27efb77cff37031f.1920x1080.jpg?t=1557442133",
+                             "https://steamcdn-a.akamaihd.net/steam/apps/1049000/ss_9c511faf4bd3609ec06589e918e0db75a0e959b1.1920x1080.jpg?t=1557442133",
+                             "https://steamcdn-a.akamaihd.net/steam/apps/1049000/ss_693ff848a4d5d8f7c143d1be69efc57c19dce59c.1920x1080.jpg?t=1557442133"])
+
+    games += games_builder("Toggle", "Unity 3D", "Gameplay, UI, Animation", "5", "Run through the courses of a " +
                                 "middle school student's composition notebook doodles. In this runner inspired by The " +
                                 "Impossible Game, players are tasked to find a way to the end of the level. Along the " +
                                 "way, they’ll face bricks, spikes, and an occasional coin!", "Toggle had been the " +
                                 "first project I was able to dedicate serious time to. Through it I learned a lot " +
                                 "about the Unity engine and developing for mobile games. I learned how to read " +
                                 "serialized data, work with Unity’s UI, develop a game as a team, help manage a team, " +
-                                "and publish a game on the Google Play Store.", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/TogglePlayStore.png",
-                                                                                 "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Toggle-LevelSelect.jpg",
-                                                                                 "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/ToggleGameplay1.jpg"])
+                                "and publish a game on the Google Play Store.",
+                            ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/TogglePlayStore.png",
+                             "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Toggle-LevelSelect.jpg",
+                             "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/ToggleGameplay1.jpg"])
     games += games_builder("Drifer: The Game", "Unity 3D", "Gameplay, UI, Animation", "5", "Drifter is an " +
                                  "alternative game placing the player in the body of a homeless man in a city. The " +
                                  "player needs to rely on panhandling and scrounging for items around the world in " +
@@ -75,18 +108,20 @@ def fill_in_games():
                                  "the majority of programming tasks for a few weeks. This project taught me how to stay accountable " +
                                  "for other people’s work as Lead Programmer as well as how to structure large " +
                                  "gameplay systems, such as inventory management, survival-esque stat systems, and " +
-                                 "in-game economies on a small scale.", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-1.png",
-                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-5.png",
-                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-6.png"])
+                                 "in-game economies on a small scale.",
+                            ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-1.png",
+                             "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-5.png",
+                             "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/01/Drifter-6.png"])
     games += games_builder("Cubed", "Unity 3D", "Gameplay, Design, UI", "1", "An isometric puzzle platformer " +
                                  "with inspiration from Portal and M.C. Escher's 'Ascending and Descending.' " +
                                  "Original game created for Ludum Dare 37 in a weekend. In that amount of time, " +
                                  "I developed moving platforms, character controls, interactive environments, and " +
-                                 "the puzzles playable on Itch.io", "", ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay1.png",
-                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay3.jpg",
-                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay2.jpg",
-                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay4.gif",
-                                                                         "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay5.jpg"])
+                                 "the puzzles playable on Itch.io", "",
+                            ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay1.png",
+                             "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay3.jpg",
+                             "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay2.jpg",
+                             "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay4.gif",
+                             "http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2017/04/Cubed-Gameplay5.jpg"])
     return games
 
 
@@ -110,8 +145,8 @@ def fill_in_tools():
 def fill_in_software():
     software = tools_builder("App Pinner", "Windows 10", "Tired of your bland Windows 10 Start Menu? Pick and choose " +
                              "your own images to represent files, folders, programs, websites, or games on your PC. " +
-                             "The program can automatically find your installed Steam and GOG Galaxy games (Uplay and " +
-                             "Origin coming soon). Along with finding your games for you, App Pinner can also grab " +
+                             "The program can automatically find your installed Steam, GOG, and Origin games (Uplay " +
+                             "coming soon). Along with finding your games for you, App Pinner can also grab " +
                              "high-resolution images from the web to match your games!\n\nI built App Pinner because " +
                              "I wasn't happy with the tools other developers have already created for Windows 10.",
                              ["http://connorparrish.portfolio.s3.amazonaws.com/wp‑content/2018/04/apppinner.png",
